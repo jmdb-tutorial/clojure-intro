@@ -18,7 +18,7 @@
 
 (slurp "/Users/jmdb/Desktop/jims-file.txt")
 
-
+(slurp (clojure.java.io/resource "test-classpath.txt"))
 
 
 
