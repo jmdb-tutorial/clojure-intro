@@ -1,0 +1,19 @@
+* AOTB 2013 Clojure tutorial
+
+** This is a tutorial that goes with Jim's AOTB 2013 talk
+
+Here you will find the code samples that Jim was doing.
+
+** Pre-Requisites
+
+- Java / JDK
+- Leiningen 
+- git 
+
+** To follow along
+
+Find somewhere to put the code (e.g. ~/tmp)
+
+  lein new aotb-2013
+
+  git init
