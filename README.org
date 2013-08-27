@@ -17,3 +17,20 @@ Find somewhere to put the code (e.g. ~/tmp)
   lein new aotb-2013
 
   git init
+
+** Itinery
+
+- Some very basics
+- OO decomposed
+- Talking to Java
+- Something more useful - an API!
+- What else is there to see?
+  - core.logic
+  - overtone
+  - incanter
+  - datomic
+  - 
+
+** Useful links
+
+http://en.wikibooks.org/wiki/Clojure_Programming/Examples/Cookbook
