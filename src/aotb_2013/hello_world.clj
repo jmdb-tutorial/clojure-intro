@@ -7,22 +7,18 @@
 (defn say-hello-to [person]
   (format "Hello [%s]" person))
 
-(say-hello-to "Jim")
+(defn sleep-for [ms]
+  (println "going to zzzzz...")
+  (Thread/sleep ms)
+  (println "waking up again!"))
 
-(def jim {:first-name "Jim" 
-          :last-name "Barritt" 
-          :email "jimb@thoughtworks.com"})
+(time (sleep-for 1000))
 
-(say-hello-to jim)
+(spit "/Users/jmdb/Desktop/jims-file.txt" "Hey this is a real easy way to create file!")
 
-(:first-name jim)
+(slurp "/Users/jmdb/Desktop/jims-file.txt")
 
-(defmulti say-hello-to class)
 
-(defmethod say-hello-to clojure.lang.PersistentHashMap [person] 
-  (say-hello-to (:first-name person)))
 
-(defmethod say-hello-to String [person] 
-  (format "Hello [%s]" person))
 
 
