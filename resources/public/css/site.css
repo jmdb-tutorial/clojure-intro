@@ -1,0 +1,13 @@
+body {
+    margin: 20px;
+}
+
+#application-form {
+    padding: 10px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.control-label {
+    font-weight: bold;
+}
