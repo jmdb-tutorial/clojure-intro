@@ -21,4 +21,5 @@
 (slurp (clojure.java.io/resource "test-classpath.txt"))
 
 
-
+(defn -main [& args]
+  (say-hello-to (first args)))

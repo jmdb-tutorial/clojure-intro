@@ -18,7 +18,7 @@
 
   :ring {:handler clojure-intro.server/app}
   :main clojure-intro.server
-  :aot [clojure-intro.server]
+  :aot [clojure-intro.server clojure-intro.command-line]
   :plugins [[lein-ring "0.8.6"]]
   :profiles {:dev {
                    :dependencies [[midje "1.6-alpha2"]]}})
