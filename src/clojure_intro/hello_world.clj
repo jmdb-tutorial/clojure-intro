@@ -1,4 +1,4 @@
-(ns aotb-2013.hello-world)
+(ns clojure-intro.hello-world)
 
 (println "Hello world")
 

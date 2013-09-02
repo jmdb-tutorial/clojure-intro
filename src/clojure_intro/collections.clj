@@ -1,4 +1,4 @@
-(ns aotb-2013.collections)
+(ns clojure-intro.collections)
 
 (def integers (range))
 

@@ -1,4 +1,4 @@
-(ns aotb-2013.multimethods)
+(ns clojure-intro.multimethods)
 
 (defn say-hello-to [person]
   (format "Hello [%s]" person))
