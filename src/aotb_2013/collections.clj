@@ -4,14 +4,17 @@
 
 (take 20 integers)
 
-(sort (take 20 integers)) ;; Sort them descending
+(sort > (take 20 integers)) ;; Sort them descending - 
+;; All clojure functions implement the Comparator interface and so the function can be used as a comparator
+;; http://clojure.org/special_forms#fn
+
 
 ;; Extract only odd numbers
 (filter odd? (take 20 integers))
 
 ;; Filter out all odd numbers divisible by three
 (filter (fn [x] (and (odd? x)
-                    (= 3 x)))
+                    (= 0 (mod x 3))))
         (take 20 integers))
 
 
