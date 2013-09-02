@@ -2,7 +2,7 @@
   (:use [compojure.core]
         [ring.util.response])
   (:require [compojure.handler :as handler]
-            [ring.middleware.json :as middleware]
+            [ring.middleware.json :as json]
             [compojure.route :as route]                        
             [ring.adapter.jetty :as jetty]
             [clojure-intro.views :as v]
@@ -27,8 +27,8 @@
 
 (def app
   (-> (handler/api app-routes)
-      (middleware/wrap-json-body)
-      (middleware/wrap-json-response)))
+      (json/wrap-json-body)
+      (json/wrap-json-response)))
 
 (defn -main [& args]
   (mongo/connect-mongo! "clojure-intro")

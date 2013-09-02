@@ -20,8 +20,9 @@
                                { :name "Some Other" :more (local-url request "/attendees/23452345") }
                                ])))
 
-(defn post-attendees [request]
-  (get-attendees request))
+(defn post-attendees [request] 
+  
+  (redirect (local-url request "/attendees")))
 
 (defn get-attendee [id request]
   (response (array-map :is [:attendee :contact]

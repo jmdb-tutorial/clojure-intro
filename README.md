@@ -52,3 +52,4 @@ Find somewhere to put the code (e.g. ~/tmp)
 ## Useful links
 
 http://en.wikibooks.org/wiki/Clojure_Programming/Examples/Cookbook
+https://github.com/heow/compojure-cookies-example
