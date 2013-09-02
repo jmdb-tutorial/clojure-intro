@@ -11,3 +11,8 @@ body {
 .control-label {
     font-weight: bold;
 }
+
+.form-actions {
+    margin-left: 0;
+    padding-left: 0;
+}
