@@ -16,9 +16,11 @@
 (defmulti say-hello-to class)
 
 (defmethod say-hello-to clojure.lang.PersistentHashMap [person] 
-  (say-hello-to (:first-name person)))
+  (let [{:keys first-name} person]
+    (say-hello-to first-name)))
+
 
 (defmethod say-hello-to String [person] 
   (format "Hello [%s]" person))
 
-()
+
