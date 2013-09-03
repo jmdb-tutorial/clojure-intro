@@ -24,8 +24,17 @@
      (dissoc data :_id)
      (merge {:id (str _id)}))))
 
-(defn retrieve-collection [collection-name query]
-  (map normalise-mongo-id (mc/find-maps collection-name query)))
+(defn add-tags [data tags]
+  "Add the list of tags to the data"
+  (merge data {:is (map name tags)}))
+
+(defn process-document [document]
+  (-> document
+      (normalise-mongo-id)))
+
+(defn retrieve-collection 
+  ([collection-name] (retrieve-collection collection-name {}))
+  ([collection-name query] (map process-document (mc/find-maps collection-name query))))
 
 (defn retrieve-document [collection-name id]
   (let [data (mc/find-map-by-id collection-name (ObjectId. id))]

@@ -5,7 +5,7 @@
             [ring.middleware.json :as json]
             [compojure.route :as route]                        
             [ring.adapter.jetty :as jetty]
-            [clojure-intro.views :as v]
+            [clojure-intro.views-mongo :as v]
             [clojure-intro.mongo-api :as mongo])
   (:gen-class))
 

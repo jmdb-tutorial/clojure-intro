@@ -1,5 +1,6 @@
-(ns clojure-intro.views
-  (:use [ring.util.response]))
+(ns clojure-intro.views-mongo
+  (:use [ring.util.response]
+        [clojure-intro.mongo-api]))
 
 (defn local-url 
   ([request] (local-url request ""))
@@ -13,15 +14,13 @@
                          :attendees (local-url request "/attendees"))))
 
 (defn get-attendees [request]
-  (response (array-map :is [:attendee :list]
-                       :count 3
-                       :items [ 
-                               { :name "Jim Barritt" :more (local-url request "/attendees/234234234") }
-                               { :name "Foo Bar" :more (local-url request "/attendees/6545674567") }
-                               { :name "Some Other" :more (local-url request "/attendees/23452345") }
-                               ])))
+  (let [items (retrieve-collection "attendees")]
+    (response (array-map :is [:attendee :list] 
+                         :count (count items)
+                         :items items))))
 
 (defn post-attendees [request] 
+  (store-document "attendees" (:form-params request))
   (redirect (local-url request "/attendees")))
 
 (defn get-attendee [id request]
