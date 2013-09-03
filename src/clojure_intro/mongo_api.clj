@@ -38,7 +38,7 @@
 
 (defn retrieve-document [collection-name id]
   (let [data (mc/find-map-by-id collection-name (ObjectId. id))]
-    (println data)))
+    (process-document data)))
 
 
 

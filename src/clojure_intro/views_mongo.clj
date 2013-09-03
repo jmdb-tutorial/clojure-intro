@@ -13,8 +13,16 @@
                          :for-humans (local-url request "/index.html")
                          :attendees (local-url request "/attendees"))))
 
+(defn attendee-summary [request attendee]
+  (let [{:keys [id name]} attendee]
+    (array-map :name name
+               :more (local-url request (format "/attendees/%s" id)))))
+
+(defn attendee-list [request attendees]
+  (map (partial attendee-summary request) attendees))
+
 (defn get-attendees [request]
-  (let [items (retrieve-collection "attendees")]
+  (let [items (attendee-list request (retrieve-collection "attendees"))]
     (response (array-map :is [:attendee :list] 
                          :count (count items)
                          :items items))))
@@ -23,10 +31,11 @@
   (store-document "attendees" (:form-params request))
   (redirect (local-url request "/attendees")))
 
+(defn format-document [document]
+  (let [tags (:is document)]
+    (-> (dissoc document :is)
+        (merge {:is [tags]}))))
+
 (defn get-attendee [id request]
-  (response (array-map :is [:attendee :contact]
-                       :id id
-                       :name "Jim Barritt"
-                       :postcode "TZ34 5DF"
-                       :email "jimb@thoughtworks.com"
-                       :twitter "https://twitter.com/jimbarritt")))
+  (response (format-document (retrieve-document "attendees" id))))
+
