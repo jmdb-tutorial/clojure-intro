@@ -18,11 +18,8 @@
     (array-map :name name
                :more (local-url request (format "/attendees/%s" id)))))
 
-(defn attendee-list [request attendees]
-  (map (partial attendee-summary request) attendees))
-
 (defn get-attendees [request]
-  (let [items (attendee-list request (retrieve-collection "attendees"))]
+  (let [items (map (partial attendee-summary request) (retrieve-collection "attendees"))]
     (response (array-map :is [:attendee :list] 
                          :count (count items)
                          :items items))))
@@ -31,11 +28,7 @@
   (store-document "attendees" (:form-params request))
   (redirect (local-url request "/attendees")))
 
-(defn format-document [document]
-  (let [tags (:is document)]
-    (-> (dissoc document :is)
-        (merge {:is [tags]}))))
 
 (defn get-attendee [id request]
-  (response (format-document (retrieve-document "attendees" id))))
+  (response (retrieve-document "attendees" id)))
 

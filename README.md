@@ -34,6 +34,7 @@ Find somewhere to put the code (e.g. ~/tmp)
 
   lein new aotb-2013
 
+
   git init
 
 ## Itinery

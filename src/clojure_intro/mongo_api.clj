@@ -24,13 +24,19 @@
      (dissoc data :_id)
      (merge {:id (str _id)}))))
 
+(defn format-document [document]
+  (let [tags (:is document)]
+    (-> (dissoc document :is)
+        (merge {:is [tags]}))))
+
+
 (defn add-tags [data tags]
   "Add the list of tags to the data"
   (merge data {:is (map name tags)}))
 
 (defn process-document [document]
-  (-> document
-      (normalise-mongo-id)))
+  (-> (normalise-mongo-id document)
+      (format-document)))
 
 (defn retrieve-collection 
   ([collection-name] (retrieve-collection collection-name {}))

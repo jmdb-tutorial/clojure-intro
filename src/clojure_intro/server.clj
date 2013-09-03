@@ -30,6 +30,10 @@
       (json/wrap-json-body)
       (json/wrap-json-response)))
 
+;; To remove the data from mongo...
+;; $ mongo clojure-intro
+;; > db.attendees.drop()  
+
 (defn -main [& args]
   (mongo/connect-mongo! "clojure-intro")
   (if (not (empty? args))
