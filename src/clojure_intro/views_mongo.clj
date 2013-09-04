@@ -32,3 +32,4 @@
 (defn get-attendee [id request]
   (response (retrieve-document "attendees" id)))
 
+ 

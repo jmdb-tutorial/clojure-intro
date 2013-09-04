@@ -1,6 +1,6 @@
 # AOTB 2013 Clojure tutorial
 
-## This is a tutorial that goes with Jim's AOTB 2013 talk
+## This is a tutorial that goes with Jim's intro to clojure talk
 
 Here you will find the code samples that Jim was doing. To run them, install the pre-requisites and then type
 
@@ -13,12 +13,12 @@ To see the server in action or,
 To see the command line program running. You have to type the ```-m``` part because we have the default main class to be set up to be the server.
   
   lein uberjar
-  java -cp ./target/aotb-2013-0.1.0-SNAPSHOT-standalone.jar clojure_intro/command_line "Some name"
+  java -cp ./target/clojure-intro-0.1.0-SNAPSHOT-standalone.jar clojure_intro/command_line "Some name"
 
 Or
 
   lein uberjar
-  java -jar ./target/aotb-2013-0.1.0-SNAPSHOT-standalone.jar
+  java -jar ./target/clojure-intro-0.1.0-SNAPSHOT-standalone.jar
 
 To start the server this way.
 
@@ -48,7 +48,7 @@ Find somewhere to put the code (e.g. ~/tmp)
   - overtone
   - incanter
   - datomic
-  - 
+ 
 
 ## Useful links
 

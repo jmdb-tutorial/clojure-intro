@@ -1,6 +1,10 @@
-(ns clojure-intro.hello-world)
+(ns clojure-intro.hello-world) 
 
 (println "Hello world")
+
+(+ 1 2)
+
+(- 10 (+ 2 3))
 
 (println (format "Hello [%s]" "jim"))
 
