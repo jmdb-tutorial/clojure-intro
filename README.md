@@ -1,4 +1,4 @@
-# AOTB 2013 Clojure tutorial
+# Clojure Introduction
 
 ## This is a tutorial that goes with Jim's intro to clojure talk
 
